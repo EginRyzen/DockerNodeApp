@@ -1,13 +1,17 @@
-FROM node:latest
+# Menggunakan image node yang sudah ada
+FROM node:16
 
-# Salin semua file ke dalam container di folder /app
-COPY . /app
-
-# Pindah ke direktori kerja /app
+# Menetapkan direktori kerja di dalam container
 WORKDIR /app
 
-# Jalankan aplikasi menggunakan Node.js
-CMD ["node", "app.js"]
+# Menyalin file package.json dan package-lock.json ke dalam container
+COPY package*.json ./
 
-# Ekspos port 3000
-EXPOSE 3000
+# Menginstal dependensi
+RUN npm install
+
+# Menyalin seluruh kode aplikasi ke dalam container
+COPY . .
+
+# Menjalankan aplikasi dengan perintah npm run dev
+CMD ["npm", "run", "dev"]
