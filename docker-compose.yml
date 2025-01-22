@@ -5,7 +5,7 @@ services:
     build: .
     container_name: restapi
     ports:
-      - "3000:3000"
+      - "3002:3002"
     environment:
       DB_HOST: ${DB_HOST}
       DB_PORT: ${DB_PORT}

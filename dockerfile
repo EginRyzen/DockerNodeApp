@@ -13,5 +13,8 @@ RUN npm install
 # Menyalin seluruh kode aplikasi ke dalam container
 COPY . .
 
+# Expose port sesuai dengan yang digunakan
+EXPOSE 3002
+
 # Menjalankan aplikasi dengan perintah npm run dev
 CMD ["npm", "run", "dev"]
