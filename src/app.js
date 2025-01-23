@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 const userRoutes = require('./routes/albumRouter');
 const sequelize = require('./config/db');
 
