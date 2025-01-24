@@ -1,7 +1,7 @@
-import { Sequelize } from 'sequelize';
+const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize({
-    host: process.env.DB_HOST || 'localhost',
+    host: process.env.DB_HOST || 'db',
     port: process.env.DB_PORT || 5432,
     username: process.env.DB_USER || 'postgres',
     password: process.env.DB_PASSWORD || '12345',
@@ -21,4 +21,4 @@ const testConnection = async () => {
 // Panggil fungsi untuk menguji koneksi
 testConnection();
 
-export default sequelize;
+module.exports = sequelize;

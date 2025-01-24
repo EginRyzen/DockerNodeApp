@@ -25,7 +25,7 @@
 //     getAlbums
 // }
 
-import Album from '../models/albumModel';
+const Album = require('../models/albumModel');
 
 const getAlbums = async (req, res) => {
     try {
