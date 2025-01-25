@@ -3,6 +3,8 @@ version: '3.8'
 services:
   app:
     build: .
+    volumes:
+      - app_data:/app/data  # Volume untuk aplikasi
     container_name: restapi
     env_file: ./.env
     ports:
@@ -20,6 +22,8 @@ services:
 
   db:
     image: postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data  # Volume untuk database
     container_name: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
@@ -34,3 +38,7 @@ services:
 networks:
   restapi-nt:
     driver: bridge
+
+volumes:
+  app_data:  # Mendefinisikan volume untuk aplikasi
+  db_data:   # Mendefinisikan volume untuk database
