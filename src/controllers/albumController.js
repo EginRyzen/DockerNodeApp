@@ -1,32 +1,7 @@
-// import Album from '../models/albumModel';
-
-// //Read (All Albums)
-// const getAlbums = async (req, res) => {
-
-//     // console.log(Album.findAll());
-
-//     try {
-//         const albums = await Album.findAll();
-//         res.status(200).json({
-//             message: 'Successfully fetched albums data',
-//             data: albums
-//         });
-//     } catch (error) {
-//         console.error('Error fetching albums data:', error); // Log error detail
-//         res.status(500).json({
-//             message: 'Error fetching albums data',
-//             error: error.message, // Kirim pesan error ke response untuk debugging
-//         });
-//     }
-// };
-
-
-// module.exports = {
-//     getAlbums
-// }
-
+const { user } = require('pg/lib/defaults');
 const Album = require('../models/albumModel');
 
+// GET ALL ALBUMS
 const getAlbums = async (req, res) => {
     try {
         console.log('Testing database connection...');
@@ -50,6 +25,29 @@ const getAlbums = async (req, res) => {
     }
 };
 
+// Create User
+const createAlbum = async (req, res) => {
+    const { title, artist, price } = req.body;
+    try {
+        const user = await Album.create({
+            title,
+            artist,
+            price,
+        });
+
+        res.status(201).json({
+            message: 'Successfully created album data',
+            data: user
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error creating album data',
+            error: error.message
+        })
+    }
+}
+
 module.exports = {
     getAlbums,
+    createAlbum,
 };
