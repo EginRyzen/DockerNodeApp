@@ -4,6 +4,7 @@ const {
     getAlbums,
     getById,
     createAlbum,
+    updateAlbum,
     deleteAlbum
 } = require('../controllers/albumController');
 
@@ -17,6 +18,9 @@ router.get('/albums/:id', getById);
 
 // Route untuk created data album
 router.post('/albums', createAlbum);
+
+//Route untuk update data album
+router.put('/albums/:id', updateAlbum);
 
 //Route untuk menghapus data album
 router.delete('/albums/:id', deleteAlbum);
