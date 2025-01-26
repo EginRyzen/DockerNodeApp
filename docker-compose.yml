@@ -4,7 +4,7 @@ services:
   app:
     build: .
     volumes:
-      - app_data:/app/data  # Volume untuk aplikasi
+      - app_data:/app
     container_name: restapi
     env_file: ./.env
     ports:
@@ -23,7 +23,7 @@ services:
   db:
     image: postgres
     volumes:
-      - db_data:/var/lib/postgresql/data  # Volume untuk database
+      - db_data:/var/lib/postgresql/data 
     container_name: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER}

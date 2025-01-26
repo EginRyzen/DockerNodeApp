@@ -4,10 +4,6 @@ const Album = require('../models/albumModel');
 // GET ALL ALBUMS
 const getAlbums = async (req, res) => {
     try {
-        console.log('Testing database connection...');
-        await Album.sequelize.authenticate(); // Mengecek koneksi database
-        console.log('Database connection is successful.');
-
         console.log('Fetching albums...');
         const albums = await Album.findAll();
         console.log('Albums fetched successfully:', albums);
@@ -47,7 +43,33 @@ const createAlbum = async (req, res) => {
     }
 }
 
+//DELETE DATA
+const deleteAlbum = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const user = await Album.findByPk(id);
+        if (user) {
+            await user.destroy();
+            res.status(200).json({
+                message: 'Successfully deleted album data',
+                data: user
+            })
+        } else {
+            res.status(404).json({
+                message: 'User not found'
+            })
+        }
+    } catch (error) {
+        res.status(500).json({
+            message: "Error deleting user",
+            error: error.message
+        })
+    }
+}
+
 module.exports = {
     getAlbums,
     createAlbum,
+    deleteAlbum,
 };
+
