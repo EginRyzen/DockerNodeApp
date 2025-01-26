@@ -4,7 +4,7 @@ services:
   app:
     build: .
     volumes:
-      - app_data:/app
+      - ./:/app
     container_name: restapi
     env_file: ./.env
     ports:

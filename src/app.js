@@ -8,7 +8,7 @@ app.use(express.json());
 app.use('/api', userRoutes);
 
 app.get('/', (req, res) => {
-    res.send('Welcome to the REST API');
+    res.send('Welcome to the REST API Node js');
 })
 
 sequelize.sync()
