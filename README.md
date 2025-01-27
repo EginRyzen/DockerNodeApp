@@ -33,5 +33,12 @@ Dengan menggunakan Docker, Anda tidak perlu menginstal Node.js atau PostgreSQL s
    Buka terminal dan jalankan perintah berikut untuk mengkloning repositori:
 
    ```bash
-   git clone https://github.com/username/repo-name.git
+   git clone https://github.com/EginRyzen/DockerNodeApp.git
+   ```
+
+2. **Jalankan Docker Compose**
+   Jalankan Docker Compose Setelah berada di dalam direktori proyek, jalankan perintah berikut untuk membangun dan menjalankan kontainer Docker:
+
+   ```bash
+   docker-compose up -d --build
    ```
