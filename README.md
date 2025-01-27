@@ -20,11 +20,12 @@ Proyek ini adalah aplikasi REST API CRUD (Create, Read, Update, Delete) yang dib
 
 ## Prasyarat
 
-Sebelum menjalankan proyek ini, pastikan Anda telah menginstal:
+Semua program dalam proyek ini diinstal dan dijalankan di dalam kontainer Docker. Pastikan Anda telah menginstal:
 
-- [Node.js](https://nodejs.org/)
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
+- [Docker](https://www.docker.com/): Platform untuk mengembangkan, mengirim, dan menjalankan aplikasi dalam kontainer.
+- [Docker Compose](https://docs.docker.com/compose/): Alat untuk mendefinisikan dan menjalankan aplikasi multi-kontainer dengan menggunakan file YAML.
+
+Dengan menggunakan Docker, Anda tidak perlu menginstal Node.js atau PostgreSQL secara langsung di mesin Anda, karena semua dependensi akan dikelola di dalam kontainer.
 
 ## Cara Mengkloning dan Menjalankan Proyek
 
